@@ -329,7 +329,7 @@ calculateTotal() {
 ---
 
 
-## Author
+## 👤 Author
 
 - Frontend Mentor - [Ayokanmi Adejola](https://www.frontendmentor.io/profile/Adejola-Ayokanmi)
 
