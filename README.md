@@ -328,10 +328,9 @@ calculateTotal() {
 
 ---
 
-<div align="center">
+
 ## Author
 
 - Frontend Mentor - [Ayokanmi Adejola](https://www.frontendmentor.io/profile/Adejola-Ayokanmi)
 
-</div>
-# Multi-Step-Form.
+
