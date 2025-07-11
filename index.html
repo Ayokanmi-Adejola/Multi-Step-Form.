@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <title>Frontend Mentor | Multi-step form</title>
+</head>
+<body>
+  <main class="container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" role="navigation" aria-label="Form steps">
+      <div class="sidebar-content">
+        <div class="step-indicator" data-step="1">
+          <div class="step-number active" aria-current="step">1</div>
+          <div class="step-info">
+            <span class="step-label">Step 1</span>
+            <span class="step-title">Your info</span>
+          </div>
+        </div>
+
+        <div class="step-indicator" data-step="2">
+          <div class="step-number">2</div>
+          <div class="step-info">
+            <span class="step-label">Step 2</span>
+            <span class="step-title">Select plan</span>
+          </div>
+        </div>
+
+        <div class="step-indicator" data-step="3">
+          <div class="step-number">3</div>
+          <div class="step-info">
+            <span class="step-label">Step 3</span>
+            <span class="step-title">Add-ons</span>
+          </div>
+        </div>
+
+        <div class="step-indicator" data-step="4">
+          <div class="step-number">4</div>
+          <div class="step-info">
+            <span class="step-label">Step 4</span>
+            <span class="step-title">Summary</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <section class="main-content">
+      <form id="multi-step-form" novalidate>
+
+        <!-- Step 1: Personal Information -->
+        <div class="step-content active" data-step="1">
+          <div class="step-header">
+            <h1>Personal info</h1>
+            <p>Please provide your name, email address, and phone number.</p>
+          </div>
+
+          <div class="form-fields">
+            <div class="field-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="e.g. Stephen King" required aria-describedby="name-error">
+              <span class="error-message" id="name-error" role="alert"></span>
+            </div>
+
+            <div class="field-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="e.g. stephenking@lorem.com" required aria-describedby="email-error">
+              <span class="error-message" id="email-error" role="alert"></span>
+            </div>
+
+            <div class="field-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="e.g. +1 234 567 890" required aria-describedby="phone-error">
+              <span class="error-message" id="phone-error" role="alert"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Plan Selection -->
+        <div class="step-content" data-step="2">
+          <div class="step-header">
+            <h1>Select your plan</h1>
+            <p>You have the option of monthly or yearly billing.</p>
+          </div>
+
+          <div class="form-fields">
+            <div class="plan-options">
+              <div class="plan-card" data-plan="arcade">
+                <img src="./assets/images/icon-arcade.svg" alt="Arcade plan icon">
+                <div class="plan-info">
+                  <h3>Arcade</h3>
+                  <p class="plan-price">$9/mo</p>
+                  <p class="plan-discount hidden">2 months free</p>
+                </div>
+                <input type="radio" id="arcade" name="plan" value="arcade" required>
+              </div>
+
+              <div class="plan-card" data-plan="advanced">
+                <img src="./assets/images/icon-advanced.svg" alt="Advanced plan icon">
+                <div class="plan-info">
+                  <h3>Advanced</h3>
+                  <p class="plan-price">$12/mo</p>
+                  <p class="plan-discount hidden">2 months free</p>
+                </div>
+                <input type="radio" id="advanced" name="plan" value="advanced" required>
+              </div>
+
+              <div class="plan-card" data-plan="pro">
+                <img src="./assets/images/icon-pro.svg" alt="Pro plan icon">
+                <div class="plan-info">
+                  <h3>Pro</h3>
+                  <p class="plan-price">$15/mo</p>
+                  <p class="plan-discount hidden">2 months free</p>
+                </div>
+                <input type="radio" id="pro" name="plan" value="pro" required>
+              </div>
+            </div>
+
+            <div class="billing-toggle">
+              <span class="billing-label monthly active">Monthly</span>
+              <label class="toggle-switch" for="billing-toggle">
+                <input type="checkbox" id="billing-toggle" name="billing" value="yearly">
+                <span class="slider"></span>
+                <span class="sr-only">Toggle between monthly and yearly billing</span>
+              </label>
+              <span class="billing-label yearly">Yearly</span>
+            </div>
+
+            <span class="error-message" id="plan-error" role="alert"></span>
+          </div>
+        </div>
+
+        <!-- Step 3: Add-ons Selection -->
+        <div class="step-content" data-step="3">
+          <div class="step-header">
+            <h1 id="addons-heading">Pick add-ons</h1>
+            <p>Add-ons help enhance your gaming experience.</p>
+          </div>
+
+          <div class="form-fields">
+            <div class="addon-options" role="group" aria-labelledby="addons-heading">
+              <label class="addon-card" for="online-service" tabindex="0" role="checkbox" aria-checked="false">
+                <input type="checkbox" id="online-service" name="addons" value="online-service">
+                <span class="checkmark"></span>
+                <div class="addon-info">
+                  <h3>Online service</h3>
+                  <p>Access to multiplayer games</p>
+                </div>
+                <span class="addon-price">+$1/mo</span>
+              </label>
+
+              <label class="addon-card" for="larger-storage" tabindex="0" role="checkbox" aria-checked="false">
+                <input type="checkbox" id="larger-storage" name="addons" value="larger-storage">
+                <span class="checkmark"></span>
+                <div class="addon-info">
+                  <h3>Larger storage</h3>
+                  <p>Extra 1TB of cloud save</p>
+                </div>
+                <span class="addon-price">+$2/mo</span>
+              </label>
+
+              <label class="addon-card" for="customizable-profile" tabindex="0" role="checkbox" aria-checked="false">
+                <input type="checkbox" id="customizable-profile" name="addons" value="customizable-profile">
+                <span class="checkmark"></span>
+                <div class="addon-info">
+                  <h3>Customizable Profile</h3>
+                  <p>Custom theme on your profile</p>
+                </div>
+                <span class="addon-price">+$2/mo</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4: Summary -->
+        <div class="step-content" data-step="4">
+          <div class="step-header">
+            <h1>Finishing up</h1>
+            <p>Double-check everything looks OK before confirming.</p>
+          </div>
+
+          <div class="form-fields">
+            <div class="summary-card">
+              <div class="summary-plan">
+                <div class="plan-summary">
+                  <h3 id="selected-plan-name">Arcade (Monthly)</h3>
+                  <button type="button" class="change-link" onclick="goToStep(2)">Change</button>
+                </div>
+                <span class="plan-total" id="selected-plan-price">$9/mo</span>
+              </div>
+
+              <hr class="summary-divider">
+
+              <div class="summary-addons" id="selected-addons">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+            <div class="total-summary">
+              <span class="total-label" id="total-label">Total (per month)</span>
+              <span class="total-amount" id="total-amount">$12/mo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5: Thank You -->
+        <div class="step-content" data-step="5">
+          <div class="thank-you-content">
+            <img src="./assets/images/icon-thank-you.svg" alt="Thank you icon" class="thank-you-icon">
+            <h1>Thank you!</h1>
+            <p>Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com.</p>
+          </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="form-navigation">
+          <button type="button" class="btn btn-back hidden" id="back-btn">Go Back</button>
+          <button type="button" class="btn btn-next" id="next-btn">Next Step</button>
+          <button type="submit" class="btn btn-confirm hidden" id="confirm-btn">Confirm</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+ <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Ayokanmi Adejola</a>.
+  </footer>
+
+  <!-- Educational Disclaimer -->
+  <div class="disclaimer">
+    <div class="disclaimer-content">
+      <h3>📚 Educational Project Notice</h3>
+      <p>
+        <strong>This is a personal educational project</strong> created for learning purposes as part of a Frontend Mentor challenge.
+        <strong>No real data is collected, stored, or transmitted.</strong> All form submissions are simulated and your information
+        remains completely private and secure on your device.
+      </p>
+      <p>
+        This project demonstrates front-end development skills including responsive design, form validation,
+        and accessibility best practices.
+      </p>
+    </div>
+  </div>
+
+ 
+
+  <script src="script.js"></script>
+</body>
+</html>
